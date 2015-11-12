@@ -24,7 +24,7 @@ public class HeroChatListener implements Listener
         Channel channel = e.getChannel();
         if (!plugin.getConfigMananger().getHerochatChannels().contains(channel.getName())) return;
         IRCMessageSentEvent ircsent = new IRCMessageSentEvent(e.getMessage(), e.getSender().getName(), MessageDirection.IRC);
-        plugin.getBot().sendMessage(e.getSender().getName(), e.getMessage());
+        plugin.getBot().sendChatMessage(e.getSender().getName(), e.getMessage());
         Bukkit.getServer().getPluginManager().callEvent(ircsent);
     }
 }

@@ -4,6 +4,7 @@ import ca.jamiesinn.mcirc.api.IRCMessageSentEvent;
 import ca.jamiesinn.mcirc.util.MessageDirection;
 import com.dthielke.herochat.Channel;
 import com.dthielke.herochat.Herochat;
+import org.bukkit.Bukkit;
 import org.jibble.pircbot.IrcException;
 import org.jibble.pircbot.PircBot;
 
@@ -28,19 +29,16 @@ public class IRCBot extends PircBot
 
     public void init()
     {
-
         try
         {
             this.setName(nick);
             this.connect(server);
             this.joinChannel(channel);
-
         }
         catch (IOException | IrcException e)
         {
             e.printStackTrace();
         }
-
     }
 
     @Override
@@ -53,6 +51,7 @@ public class IRCBot extends PircBot
             Channel c = Herochat.getChannelManager().getChannel(s);
             c.announce("[IRC] " + sender + ": " + message);
         }
+        Bukkit.getServer().getPluginManager().callEvent(event);
     }
 
     public void sendChatMessage(String sender, String message)
@@ -60,5 +59,4 @@ public class IRCBot extends PircBot
         String messageFormatted = "[Minecraft] " + sender + ": " + message;
         sendMessage(channel, messageFormatted);
     }
-
 }
