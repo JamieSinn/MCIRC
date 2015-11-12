@@ -1,0 +1,5 @@
+name: MCIRC
+main: ca.jamiesinn.mcirc.MCIRC
+version: ${project.version}
+author: JamieSinn
+description: IRC Bridge with HeroChat Support
