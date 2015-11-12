@@ -1,0 +1,16 @@
+irc:
+  ## Bot Name to be displayed in the IRC Channel
+  botName: IRCBot
+  ## IRC Channel, excluding the # sign
+  botChannel: spigot
+  ## IRC Network
+  botNetwork: 'irc.spi.gt'
+  ## NickServ password
+  botPass: password
+
+minecraft:
+  ## What channels to broadcast to
+  channels:
+    - Global
+  ## What should the prefix of messages broadcasted be?
+  prefix: [IRC]
